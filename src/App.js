@@ -1,9 +1,10 @@
 // import logo from "./logo.svg";
 
-import Expenses from "./components/Expense/Expenses";
+import Expenses from "./Components/Expense/Expenses";
+import NewExpense from "./Components/NewExpesnse/NewExpense";
 import "./App.css";
 
-const App = () => {  
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -25,13 +26,18 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
-  
+
+  const addExpenseHandler = expense => {
+    console.log("App_JS data log");
+    console.log(expense);
+  };
+
   return (
     <div className="App">
-      <h2>Lets get started</h2>
-      <Expenses items={expenses}/>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
